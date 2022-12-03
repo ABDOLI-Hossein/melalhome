@@ -1,0 +1,16 @@
+
+.selectWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.selectWrapper select{
+    width: 20%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.login_error{
+    color: red;
+}
