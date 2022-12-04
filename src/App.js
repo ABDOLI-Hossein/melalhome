@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Rents from './components/rents';
-import Navbar from './components/navbar';
-import Routes from './routes';
+
+import Navbar from './components/navbar/navbar';
+import Routes from './components/routes/routes';
 import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
-import FooterUser from './components/user/Footer/footer';
+import FooterUser from './components/footer/footer';
 import { useLocation } from 'react-router-dom';
+import axiosInstance from './components/config/axios';
 
 
 function App() {
 
 
- const location = useLocation();
+const location = useLocation();
+const [user,setUser] = useState();
 
-  
-
-
-
-  const [user,setUser] = useState();
 
   useEffect(()=>{
 
@@ -32,6 +29,20 @@ function App() {
     }
 
   }, [])
+
+  useEffect(()=> {
+    async function getData(){
+        const res = await axiosInstance.get('http://77.104.118.16:8001/api/').then((res) => {
+            //setPostLength(res.data.length)
+            console.log(res)
+        })
+        
+    }
+    getData()
+
+  },[])
+
+
   
   return (
     <>
